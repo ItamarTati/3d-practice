@@ -1,0 +1,11 @@
+Model Information:
+* title:	Krillin_Walking_Cycle
+* source:	https://sketchfab.com/3d-models/krillin-walking-cycle-779a6affdc1745fbba329bfe1b029faa
+* author:	XIAN_K (https://sketchfab.com/XIAN_K)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Krillin_Walking_Cycle" (https://sketchfab.com/3d-models/krillin-walking-cycle-779a6affdc1745fbba329bfe1b029faa) by XIAN_K (https://sketchfab.com/XIAN_K) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

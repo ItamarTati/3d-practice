@@ -1,6 +1,7 @@
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+import { AnimationMixer } from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
 
 
 const scene = new THREE.Scene();
@@ -14,7 +15,7 @@ let controls;
 
 const loader = new GLTFLoader();
 loader.load(
-    '/public/macbookpro/scene.gltf',
+    '/krillin/scene.gltf',
     function (gltf) {
         object = gltf.scene;
         scene.add(object);
@@ -33,3 +34,59 @@ renderer.setSize(window.innerWidth - 20, window.innerHeight);
 document.getElementById("container3D").appendChild(renderer.domElement);
 document.getElementById("container3D").style.cursor = 'grabbing'
 document.getElementById("container3D").style.width = '100%'
+document.documentElement.style.backgroundColor = 'black'
+
+camera.position.set(0.01, 0.09, 0.1)
+
+
+const topLight = new THREE.DirectionalLight(0xffffff, 1);
+topLight.position.set(500, 500, 500);
+scene.add(topLight);
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
+
+const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 2);
+scene.add(hemisphereLight);
+
+const pointLight1 = new THREE.PointLight(0xffffff, 2);
+pointLight1.position.set(0, 10, 0);
+scene.add(pointLight1);
+
+const pointLight2 = new THREE.PointLight(0xffffff, 2);
+pointLight2.position.set(10, 0, 0);
+scene.add(pointLight2);
+
+const pointLight3 = new THREE.PointLight(0xffffff, 2);
+pointLight3.position.set(0, 0, 10);
+scene.add(pointLight3);
+
+
+controls = new OrbitControls(camera, renderer.domElement);
+// controls.minDistance = 3;
+// controls.maxDistance = 3;
+// controls.enableZoom = false;
+// controls.enablePan = false;
+// controls.minPolarAngle = 1;
+// controls.maxPolarAngle = 1;
+
+function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+}
+
+window.addEventListener("resize", function () {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    console.log(window.innerWidth)
+    renderer.setSize(window.innerWidth - 20, window.innerHeight);
+});
+
+
+
+document.onmousemove = (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+}
+
+animate();
